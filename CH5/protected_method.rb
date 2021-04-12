@@ -1,3 +1,5 @@
+# protected
+
 class C
   def initialize(n)
     @n = n
