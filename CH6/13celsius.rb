@@ -3,3 +3,5 @@ puts "Celsius\tFahrenheit"
 for c in celsius
   puts "#{c}\t#{Temperature.c2f(c)}"
 end
+
+loop { puts "Looping forever!" }
