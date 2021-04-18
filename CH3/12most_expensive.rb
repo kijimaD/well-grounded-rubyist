@@ -1,4 +1,24 @@
-Ticket = Class.new
+class Ticket
+  attr_writer :price
+  def initialize(venue, date)
+    @venue = venue
+    @date = date
+  end
+
+  def venue
+    @venue
+  end
+
+  def date
+    @date
+  end
+
+  def price
+    @price
+  end
+end
+
+# Ticket = Class.new
 def Ticket.most_expensive(*tickets)
   tickets.max_by(&:price)
 end
