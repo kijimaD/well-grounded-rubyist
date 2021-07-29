@@ -10,9 +10,9 @@ end
 #   a.year <=> b.year
 # end
 
-p ["2", 1, 5, "3", 4, "6"].sort { |a, b| a.to_i <=> b.to_i }
+["2", 1, 5, "3", 4, "6"].sort { |a, b| a.to_i <=> b.to_i } # => [1, "2", "3", 4, 5, "6"]
 
-p ["2", 1, 5, "3", 4, "6"].sort_by { |a| a.to_i }
+["2", 1, 5, "3", 4, "6"].sort_by { |a| a.to_i } # => [1, "2", "3", 4, 5, "6"]
 
 # An enumerator is an object, not a method.
 
@@ -23,4 +23,4 @@ p ["2", 1, 5, "3", 4, "6"].sort_by { |a| a.to_i }
 #   a.year <=> b.year
 # end
 
-["2", 1, 5, 4, "6"].sort { |a, b| a.to_i <=> b.to_i }
+["2", 1, 5, 4, "6"].sort { |a, b| a.to_i <=> b.to_i } # => [1, "2", 4, 5, "6"]
