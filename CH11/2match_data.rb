@@ -128,6 +128,86 @@ array.find_all { |e| e.size > 10 and /\d/.match(e) } # => ["111111111111111"]
 
 "testing 1 2 3 testing 4 5 6".scan(/\d/) # => ["1", "2", "3", "4", "5", "6"]
 
+# p354
+
+str = "Leopold Auer was the teacher fof Jascha Heifetz." # => "Leopold Auer was the teacher fof Jascha Heifetz."
+violinists = str.scan(/([A-Z]\w+)\s+([A-Z]\w+)/) # => [["Leopold", "Auer"], ["Jascha", "Heifetz"]]
+
+violinists.each do |fname, lname|
+  puts "#{lname}'s first name was #{fname}."
+end
+
+str.scan(/([A-Z]\w+)\s+([A-Z]\w+)/) do |fname, lname|
+  puts "#{lname}'s first name was #{fname}."
+end
+
+"one two three".scan(/\w+/) { |n| puts "Next number: #{n}" } # => "one two three"
+"one two three".scan(/\w+/)                                  # => ["one", "two", "three"]
+
+# p355
+
+require 'strscan'
+ss = StringScanner.new("Testing string scanning") # => #<StringScanner 0/23 @ "Testi...">
+ss.scan_until(/ing/)            # => "Testing"
+ss.pos                          # => 7
+ss.peek(7)                      # => " string"
+ss.unscan                       # => #<StringScanner 0/23 @ "Testi...">
+ss.pos                          # => 0
+ss.skip(/Test/)                 # => 4
+ss.rest                         # => "ing string scanning"
+
+"Ruby".split(//)                # => ["R", "u", "b", "y"]
+
+line = "first_name=david;last_name=black;country=usa"
+record = line.split(/=|;/)      # => ["first_name", "david", "last_name", "black", "country", "usa"]
+
+# p356
+
+data = []
+record = Hash[*line.split(/=|;/)]
+data.push(record)               # => [{"first_name"=>"david", "last_name"=>"black", "country"=>"usa"}]
+
+"typigraphical error".sub(/i/, "o") # => "typographical error"
+"capitalize the first vowel".sub(/[aeiou]/) { |s| s.upcase } # => "cApitalize the first vowel"
+
+"capitalize the every word".gsub(/\b\w/) { |s| s.upcase } # => "Capitalize The Every Word"
+
+"aDvid".sub(/([a-z])([A-Z])/, '\2\1') # => "David"
+
+# p357
+
+"double every word".gsub(/\b(\w+)/, '\1 \1') # => "double double every every word word"
+
+/(abc)/.match("abc")            # => #<MatchData "abc" 1:"abc">
+"aDvid".sub(/([a-z])([A-Z])/, "#{$2}#{$1}") # => "abcvid"
+
+# p358
+
+# "Match!" if re.match(string)    # => nil
+# "Match!" if string =~ re        # => nil
+# "Match!" if re === string       # => nil
+
+answer = "y"
+case answer
+when /^y/i
+  puts "Great!"
+when /^n/i
+  puts "Bye!"
+  exit
+else
+  "Huh?"
+end
+
+["USA", "UK", "France", "Germany"].grep(/[a-z]/) # => ["France", "Germany"]
+
+["USA", "UK", "France", "Germany"].select { |c| /[a-z]/ === c }
+
+["USA", "UK", "France", "Germany"].grep(/[a-z]/) { |c| c.upcase } # => ["FRANCE", "GERMANY"]
+
+[1, 2, 3].grep(/1/)             # => []
+"aa".equal?("aa")                     # => false
+# p359
+
 # >> The whole string we started with: The entire part of the string that matched: (123) 555-1234
 # >> The three captures:
 # >> Capture #1: 123
@@ -135,3 +215,11 @@ array.find_all { |e| e.size > 10 and /\d/.match(e) } # => ["111111111111111"]
 # >> Capture #3: 1234
 # >> Here's another way to get at the first capture:
 # >> Capture #1: 123
+# >> Auer's first name was Leopold.
+# >> Heifetz's first name was Jascha.
+# >> Auer's first name was Leopold.
+# >> Heifetz's first name was Jascha.
+# >> Next number: one
+# >> Next number: two
+# >> Next number: three
+# >> Great!
