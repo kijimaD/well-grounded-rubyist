@@ -22,5 +22,5 @@ old_stdout = $stdout # !> assigned but unused variable - old_stdout
 $stdout = record
 $stderr = $stdout
 puts "This is a record"
-z = 10 / 0
+z = 10 / 0 # !> assigned but unused variable - z
 # to /tmp/record
