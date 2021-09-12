@@ -1,0 +1,18 @@
+
+STDERR.class                    # => IO
+STDERR.puts("Problem!")          # => nil
+STDERR.write("Problem!\n")       # => 9
+
+
+STDIN.each { |line| p line }    # => #<IO:<STDIN>>
+STDIN.select { |line| line =~ /\A[A-Z]/ } # => []
+STDIN.map { |line| line.reverse }         # => []
+
+
+
+record = File.open("/tmp/record", "w")
+old_stdout = $stdout # !> assigned but unused variable - old_stdout
+$stdout = record
+$stderr = $stdout
+puts "This is a record"
+z = 10 / 0 # !> assigned but unused variable - z
