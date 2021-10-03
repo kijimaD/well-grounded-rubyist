@@ -16,3 +16,31 @@ str.each_line { |l| puts "Next line: #{l}" }
 
 string = "Hello"
 p string.bytes
+
+# >> 97
+# >> 98
+# >> 99
+# >> 100
+# >> 101
+# >> "a"
+# >> "b"
+# >> "c"
+# >> "d"
+# >> "e"
+# >> 49
+# >> 48
+# >> 48
+# >> 8364
+# >> 49
+# >> 48
+# >> 48
+# >> 226
+# >> 130
+# >> 172
+# >> Next line: This string
+# >> Next line: has three
+# >> Next line: lines
+# >> Next line: David!
+# >> Next line: Alan!
+# >> Next line: Black
+# >> [72, 101, 108, 108, 111]

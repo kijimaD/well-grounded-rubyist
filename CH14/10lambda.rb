@@ -14,7 +14,7 @@ lam = lambda { |x| p x }
 lam.call(1)
 lam.call # argument error when lambda
 
-# ~> -:12:in `block in <main>': wrong number of arguments (given 0, expected 1) (ArgumentError)
+# ~> -:13:in `block in <main>': wrong number of arguments (given 0, expected 1) (ArgumentError)
 # ~> 	from -:15:in `<main>'
 # >> Still here!
 # >> 1
