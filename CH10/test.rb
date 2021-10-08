@@ -1,2 +1,15 @@
-["2", 1, 5, 10, "6"].sort { |a, b| a.to_i <=> b.to_i } # => [1, "2", 5, "6", 10]
-["2", 1, 5, 10, "6"].sort { |a, b| a.to_s <=> b.to_s } # => [1, 10, "2", 5, "6"]
+# 例)
+
+# enumeratorのメソッドを調べる。
+
+names = %w[aaa bbb]
+
+e = names.to_enum
+e.class
+
+e.next
+e.next
+# e.next # ここでやるとエラー
+
+e.rewind
+e.next
